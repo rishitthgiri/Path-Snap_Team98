@@ -1,6 +1,6 @@
 """Geometry helpers.
 
-Coordinates are lon/lat degrees (Russian cities, roughly 55-62 N). For distances we project each
+Coordinates are lon/lat degrees. For distances we project each
 trip to a local equirectangular plane in metres centred on the trip. Over a
 city-sized area (< 50 km) the error versus geodesic distance is well below GPS
 noise (< 0.1 %), and it lets us use fast vectorised Euclidean maths.
