@@ -1,0 +1,12 @@
+{
+  "best_params": {
+    "learning_rate": 0.023935539077283588,
+    "max_leaf_nodes": 83,
+    "min_samples_leaf": 31,
+    "l2_regularization": 0.00030121011068030335,
+    "max_features": 0.4060540942159525
+  },
+  "n_trials": 25,
+  "bo_total_seconds": 344.78121757507324,
+  "objective": "mean GroupKFold(3) observation-level Top-1 on train trips"
+}

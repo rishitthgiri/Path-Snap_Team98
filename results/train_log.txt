@@ -1,0 +1,73 @@
+train rows 262863 pos rate 0.14 | student-test rows 146996
+
+== LogisticRegression
+  fold 0: macroF1=0.9073 top1=0.8644 ll=0.1301 (0s)
+  fold 1: macroF1=0.9429 top1=0.9316 ll=0.0743 (0s)
+  fold 2: macroF1=0.9420 top1=0.9281 ll=0.0787 (0s)
+  fold 3: macroF1=0.8983 top1=0.8400 ll=0.1204 (0s)
+  fold 4: macroF1=0.9150 top1=0.8606 ll=0.1254 (0s)
+{'model': 'LogisticRegression', 'family': 'Linear / probabilistic', 'config': 'C=1.0, L2, lbfgs, StandardScaler', 'cv_macro_f1_mean': np.float64(0.9211), 'cv_macro_f1_std': np.float64(0.0204), 'cv_top1_mean': np.float64(0.8849), 'cv_log_loss_mean': np.float64(0.1058), 'test_top1': 0.8773, 'test_macro_f1': 0.9178, 'test_precision': 0.8465, 'test_recall': 0.8684, 'test_log_loss': 0.0947, 'test_route_continuity_clf_only': np.float64(0.7555), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 0.2831, 'inference_ms_per_1k_points': 0.3259, 'train_macro_f1': 0.922, 'tn': np.int64(124866), 'fp': np.int64(3011), 'fn': np.int64(2517), 'tp': np.int64(16602)}
+
+== GaussianNB
+  fold 0: macroF1=0.8579 top1=0.8507 ll=0.6123 (0s)
+  fold 1: macroF1=0.8766 top1=0.9141 ll=0.4078 (0s)
+  fold 2: macroF1=0.8711 top1=0.8919 ll=0.4941 (0s)
+  fold 3: macroF1=0.8407 top1=0.8281 ll=0.5539 (0s)
+  fold 4: macroF1=0.8397 top1=0.8411 ll=0.7287 (0s)
+{'model': 'GaussianNB', 'family': 'Linear / probabilistic', 'config': 'var_smoothing=1e-9', 'cv_macro_f1_mean': np.float64(0.8572), 'cv_macro_f1_std': np.float64(0.0169), 'cv_top1_mean': np.float64(0.8652), 'cv_log_loss_mean': np.float64(0.5594), 'test_top1': 0.8476, 'test_macro_f1': 0.8436, 'test_precision': 0.6157, 'test_recall': 0.9208, 'test_log_loss': 0.5995, 'test_route_continuity_clf_only': np.float64(0.7116), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 0.1027, 'inference_ms_per_1k_points': 0.8809, 'train_macro_f1': 0.8561, 'tn': np.int64(116891), 'fp': np.int64(10986), 'fn': np.int64(1515), 'tp': np.int64(17604)}
+
+== KNN
+  fold 0: macroF1=0.9067 top1=0.8544 ll=0.1805 (0s)
+  fold 1: macroF1=0.9470 top1=0.9290 ll=0.0862 (0s)
+  fold 2: macroF1=0.9379 top1=0.9140 ll=0.0977 (0s)
+  fold 3: macroF1=0.8927 top1=0.8221 ll=0.1644 (0s)
+  fold 4: macroF1=0.9147 top1=0.8532 ll=0.1836 (0s)
+{'model': 'KNN', 'family': 'Instance-based', 'config': 'k=25, distance-weighted, StandardScaler', 'cv_macro_f1_mean': np.float64(0.9198), 'cv_macro_f1_std': np.float64(0.0223), 'cv_top1_mean': np.float64(0.8745), 'cv_log_loss_mean': np.float64(0.1425), 'test_top1': 0.8673, 'test_macro_f1': 0.9172, 'test_precision': 0.8643, 'test_recall': 0.8472, 'test_log_loss': 0.1236, 'test_route_continuity_clf_only': np.float64(0.7334), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 0.05, 'inference_ms_per_1k_points': 3105.9191, 'train_macro_f1': 1.0, 'tn': np.int64(125334), 'fp': np.int64(2543), 'fn': np.int64(2922), 'tp': np.int64(16197)}
+
+== DecisionTree
+  fold 0: macroF1=0.9152 top1=0.8647 ll=0.1589 (3s)
+  fold 1: macroF1=0.9540 top1=0.9301 ll=0.0825 (3s)
+  fold 2: macroF1=0.9486 top1=0.9204 ll=0.1001 (3s)
+  fold 3: macroF1=0.9024 top1=0.8314 ll=0.1575 (3s)
+  fold 4: macroF1=0.9174 top1=0.8563 ll=0.1580 (3s)
+{'model': 'DecisionTree', 'family': 'Tree-based', 'config': 'max_depth=12, min_samples_leaf=20', 'cv_macro_f1_mean': np.float64(0.9275), 'cv_macro_f1_std': np.float64(0.0225), 'cv_top1_mean': np.float64(0.8806), 'cv_log_loss_mean': np.float64(0.1314), 'test_top1': 0.8803, 'test_macro_f1': 0.9251, 'test_precision': 0.8815, 'test_recall': 0.8575, 'test_log_loss': 0.1112, 'test_route_continuity_clf_only': np.float64(0.7552), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 3.6869, 'inference_ms_per_1k_points': 0.4313, 'train_macro_f1': 0.9449, 'tn': np.int64(125673), 'fp': np.int64(2204), 'fn': np.int64(2724), 'tp': np.int64(16395)}
+
+== RandomForest
+  fold 0: macroF1=0.9240 top1=0.8737 ll=0.1016 (46s)
+  fold 1: macroF1=0.9593 top1=0.9380 ll=0.0509 (45s)
+  fold 2: macroF1=0.9527 top1=0.9307 ll=0.0576 (46s)
+  fold 3: macroF1=0.9048 top1=0.8426 ll=0.0982 (45s)
+  fold 4: macroF1=0.9243 top1=0.8605 ll=0.0956 (45s)
+{'model': 'RandomForest', 'family': 'Ensemble (bagging)', 'config': '200 trees, min_samples_leaf=5', 'cv_macro_f1_mean': np.float64(0.933), 'cv_macro_f1_std': np.float64(0.0225), 'cv_top1_mean': np.float64(0.8891), 'cv_log_loss_mean': np.float64(0.0808), 'test_top1': 0.886, 'test_macro_f1': 0.9328, 'test_precision': 0.9021, 'test_recall': 0.8642, 'test_log_loss': 0.0743, 'test_route_continuity_clf_only': np.float64(0.7596), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 60.4582, 'inference_ms_per_1k_points': 48.8413, 'train_macro_f1': 0.9688, 'tn': np.int64(126083), 'fp': np.int64(1794), 'fn': np.int64(2597), 'tp': np.int64(16522)}
+
+== ExtraTrees
+  fold 0: macroF1=0.9184 top1=0.8671 ll=0.1061 (11s)
+  fold 1: macroF1=0.9560 top1=0.9342 ll=0.0564 (11s)
+  fold 2: macroF1=0.9460 top1=0.9263 ll=0.0642 (11s)
+  fold 3: macroF1=0.9049 top1=0.8403 ll=0.0983 (10s)
+  fold 4: macroF1=0.9217 top1=0.8603 ll=0.1011 (11s)
+{'model': 'ExtraTrees', 'family': 'Ensemble (bagging)', 'config': '200 trees, min_samples_leaf=5', 'cv_macro_f1_mean': np.float64(0.9294), 'cv_macro_f1_std': np.float64(0.021), 'cv_top1_mean': np.float64(0.8856), 'cv_log_loss_mean': np.float64(0.0852), 'test_top1': 0.8792, 'test_macro_f1': 0.9272, 'test_precision': 0.9021, 'test_recall': 0.8451, 'test_log_loss': 0.0781, 'test_route_continuity_clf_only': np.float64(0.7494), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 13.7573, 'inference_ms_per_1k_points': 67.1753, 'train_macro_f1': 0.9481, 'tn': np.int64(126124), 'fp': np.int64(1753), 'fn': np.int64(2962), 'tp': np.int64(16157)}
+
+== HistGradientBoosting
+  fold 0: macroF1=0.9247 top1=0.8742 ll=0.1052 (4s)
+  fold 1: macroF1=0.9593 top1=0.9379 ll=0.0508 (2s)
+  fold 2: macroF1=0.9534 top1=0.9305 ll=0.0612 (2s)
+  fold 3: macroF1=0.9049 top1=0.8434 ll=0.1006 (2s)
+  fold 4: macroF1=0.9234 top1=0.8648 ll=0.0992 (2s)
+{'model': 'HistGradientBoosting', 'family': 'Boosting', 'config': 'lr=0.1, max_iter=300, max_leaf_nodes=31, early stopping', 'cv_macro_f1_mean': np.float64(0.9332), 'cv_macro_f1_std': np.float64(0.0227), 'cv_top1_mean': np.float64(0.8902), 'cv_log_loss_mean': np.float64(0.0834), 'test_top1': 0.889, 'test_macro_f1': 0.9329, 'test_precision': 0.8941, 'test_recall': 0.8721, 'test_log_loss': 0.0751, 'test_route_continuity_clf_only': np.float64(0.7644), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 2.2394, 'inference_ms_per_1k_points': 14.1511, 'train_macro_f1': 0.9475, 'tn': np.int64(125903), 'fp': np.int64(1974), 'fn': np.int64(2445), 'tp': np.int64(16674)}
+
+== MLP
+  fold 0: macroF1=0.9217 top1=0.8762 ll=0.1078 (11s)
+/usr/local/lib/python3.13/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (60) reached and the optimization hasn't converged yet.
+  warnings.warn(
+  fold 1: macroF1=0.9574 top1=0.9364 ll=0.0584 (12s)
+  fold 2: macroF1=0.9472 top1=0.9255 ll=0.0634 (8s)
+/usr/local/lib/python3.13/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (60) reached and the optimization hasn't converged yet.
+  warnings.warn(
+  fold 3: macroF1=0.9033 top1=0.8364 ll=0.1084 (13s)
+/usr/local/lib/python3.13/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (60) reached and the optimization hasn't converged yet.
+  warnings.warn(
+  fold 4: macroF1=0.9222 top1=0.8660 ll=0.1039 (13s)
+/usr/local/lib/python3.13/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (60) reached and the optimization hasn't converged yet.
+  warnings.warn(
+{'model': 'MLP', 'family': 'Neural network', 'config': '64-32 ReLU, adam, alpha=1e-4, early stopping', 'cv_macro_f1_mean': np.float64(0.9304), 'cv_macro_f1_std': np.float64(0.0217), 'cv_top1_mean': np.float64(0.8881), 'cv_log_loss_mean': np.float64(0.0884), 'test_top1': 0.8808, 'test_macro_f1': 0.9273, 'test_precision': 0.8924, 'test_recall': 0.8545, 'test_log_loss': 0.0814, 'test_route_continuity_clf_only': np.float64(0.7599), 'candidate_miss_rate': np.float64(0.0007), 'train_time_s': 16.6152, 'inference_ms_per_1k_points': 1.707, 'train_macro_f1': 0.9438, 'tn': np.int64(125908), 'fp': np.int64(1969), 'fn': np.int64(2782), 'tp': np.int64(16337)}

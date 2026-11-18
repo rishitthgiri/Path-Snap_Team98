@@ -1,0 +1,85 @@
+trial 00 [random] {'learning_rate': 0.16265706787686454, 'max_leaf_nodes': 64, 'min_samples_leaf': 259, 'l2_regularization': 0.3067892553546431, 'max_features': 0.45650640873258974} -> 0.88146 (best 0.88146)
+trial 01 [random] {'learning_rate': 0.28083479522777993, 'max_leaf_nodes': 100, 'min_samples_leaf': 238, 'l2_regularization': 0.0004370872753994996, 'max_features': 0.6702315627373403} -> 0.88299 (best 0.88299)
+trial 02 [random] {'learning_rate': 0.05459115851317543, 'max_leaf_nodes': 119, 'min_samples_leaf': 197, 'l2_regularization': 1.2995951034240836, 'max_features': 0.6660485192963987} -> 0.88416 (best 0.88416)
+trial 03 [random] {'learning_rate': 0.037006965059563954, 'max_leaf_nodes': 77, 'min_samples_leaf': 29, 'l2_regularization': 1.3745351808288662, 'max_features': 0.7789986394732389} -> 0.88310 (best 0.88416)
+trial 04 [random] {'learning_rate': 0.15581539334992586, 'max_leaf_nodes': 55, 'min_samples_leaf': 292, 'l2_regularization': 2.9214980892945044, 'max_features': 0.8670300982442571} -> 0.88148 (best 0.88416)
+trial 05 [random] {'learning_rate': 0.03387995919871096, 'max_leaf_nodes': 67, 'min_samples_leaf': 23, 'l2_regularization': 0.0005908094868664636, 'max_features': 0.8098293719454728} -> 0.88576 (best 0.88576)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 06 [GP-EI] {'learning_rate': 0.039414088128790534, 'max_leaf_nodes': 123, 'min_samples_leaf': 99, 'l2_regularization': 0.00013111142847795312, 'max_features': 0.5529405422815423} -> 0.88372 (best 0.88576)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 07 [GP-EI] {'learning_rate': 0.036204754619602195, 'max_leaf_nodes': 55, 'min_samples_leaf': 201, 'l2_regularization': 0.00015065484785607762, 'max_features': 0.4694769656762077} -> 0.88399 (best 0.88576)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 08 [GP-EI] {'learning_rate': 0.032048555887733386, 'max_leaf_nodes': 68, 'min_samples_leaf': 16, 'l2_regularization': 0.00012697692186402115, 'max_features': 0.5511479011822623} -> 0.88594 (best 0.88594)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 09 [GP-EI] {'learning_rate': 0.02297005992403524, 'max_leaf_nodes': 64, 'min_samples_leaf': 27, 'l2_regularization': 0.0001868495145900444, 'max_features': 0.45502750316192314} -> 0.88584 (best 0.88594)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 10 [GP-EI] {'learning_rate': 0.08521607909658685, 'max_leaf_nodes': 30, 'min_samples_leaf': 13, 'l2_regularization': 0.00013224463716866912, 'max_features': 0.9943968675660956} -> 0.88402 (best 0.88594)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 0 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 11 [GP-EI] {'learning_rate': 0.2007586701188591, 'max_leaf_nodes': 81, 'min_samples_leaf': 17, 'l2_regularization': 0.000156870104740648, 'max_features': 0.6983457056554927} -> 0.88261 (best 0.88594)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 12 [GP-EI] {'learning_rate': 0.023935539077283588, 'max_leaf_nodes': 83, 'min_samples_leaf': 31, 'l2_regularization': 0.00030121011068030335, 'max_features': 0.4060540942159525} -> 0.88682 (best 0.88682)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 13 [GP-EI] {'learning_rate': 0.020653084853545417, 'max_leaf_nodes': 90, 'min_samples_leaf': 44, 'l2_regularization': 0.00018176138357109905, 'max_features': 0.6040417910970813} -> 0.88539 (best 0.88682)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 2 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 14 [GP-EI] {'learning_rate': 0.02016455142949854, 'max_leaf_nodes': 77, 'min_samples_leaf': 45, 'l2_regularization': 0.00015262110995714612, 'max_features': 0.6566287644340392} -> 0.88544 (best 0.88682)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 4 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 15 [GP-EI] {'learning_rate': 0.02511817772388997, 'max_leaf_nodes': 84, 'min_samples_leaf': 30, 'l2_regularization': 0.0021410089886109624, 'max_features': 0.5049693381160107} -> 0.88513 (best 0.88682)
+trial 16 [GP-EI] {'learning_rate': 0.02350371274422826, 'max_leaf_nodes': 81, 'min_samples_leaf': 89, 'l2_regularization': 0.0005759451164993228, 'max_features': 0.4341545433365266} -> 0.88556 (best 0.88682)
+trial 17 [GP-EI] {'learning_rate': 0.021273297842048157, 'max_leaf_nodes': 48, 'min_samples_leaf': 11, 'l2_regularization': 0.00021151874013888134, 'max_features': 0.4201924620876124} -> 0.88502 (best 0.88682)
+trial 18 [GP-EI] {'learning_rate': 0.03443105661079154, 'max_leaf_nodes': 79, 'min_samples_leaf': 40, 'l2_regularization': 0.0001442811626601672, 'max_features': 0.7728344629814108} -> 0.88415 (best 0.88682)
+trial 19 [GP-EI] {'learning_rate': 0.020763109079284484, 'max_leaf_nodes': 19, 'min_samples_leaf': 39, 'l2_regularization': 0.0041806616470101724, 'max_features': 0.9539193882257483} -> 0.88463 (best 0.88682)
+trial 20 [GP-EI] {'learning_rate': 0.021816659767033793, 'max_leaf_nodes': 67, 'min_samples_leaf': 32, 'l2_regularization': 0.00010044760027090152, 'max_features': 0.6035385292974296} -> 0.88482 (best 0.88682)
+trial 21 [GP-EI] {'learning_rate': 0.020035729368796783, 'max_leaf_nodes': 95, 'min_samples_leaf': 28, 'l2_regularization': 0.001387062887949914, 'max_features': 0.599176338715322} -> 0.88562 (best 0.88682)
+trial 22 [GP-EI] {'learning_rate': 0.02038279736935485, 'max_leaf_nodes': 69, 'min_samples_leaf': 30, 'l2_regularization': 0.0001958080958963824, 'max_features': 0.5135171617299716} -> 0.88499 (best 0.88682)
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:455: ConvergenceWarning: The optimal value found for dimension 1 of parameter k1__k2__length_scale is close to the specified upper bound 100000.0. Increasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/usr/local/lib/python3.13/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+trial 23 [GP-EI] {'learning_rate': 0.028640788984625618, 'max_leaf_nodes': 47, 'min_samples_leaf': 17, 'l2_regularization': 0.00044958804405847074, 'max_features': 0.403092118712966} -> 0.88503 (best 0.88682)
+trial 24 [GP-EI] {'learning_rate': 0.02632096747588087, 'max_leaf_nodes': 109, 'min_samples_leaf': 25, 'l2_regularization': 0.00011677859234897422, 'max_features': 0.4013910387165438} -> 0.88506 (best 0.88682)
+best {'learning_rate': 0.023935539077283588, 'max_leaf_nodes': 83, 'min_samples_leaf': 31, 'l2_regularization': 0.00030121011068030335, 'max_features': 0.4060540942159525} 0.8868183479981219
+         model  learning_rate  max_leaf_nodes  min_samples_leaf  l2_regularization  max_features  cv_macro_f1  cv_top1  cv_log_loss  test_top1  test_macro_f1  test_log_loss   fit_s  n_iter_used  inference_ms_per_1k_points
+   HGB untuned         0.1000              31                20             0.0000        1.0000       0.9324   0.8901       0.0840     0.8901         0.9333         0.0741  2.2165          108                     16.8513
+HGB tuned (BO)         0.0239              83                31             0.0003        0.4061       0.9339   0.8915       0.0794     0.8951         0.9362         0.0703 12.6151          500                     83.3599
