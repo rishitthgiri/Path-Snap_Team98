@@ -38,7 +38,7 @@ const qs = new URLSearchParams(location.search);
 const apiIn = document.getElementById('api');
 apiIn.value = qs.get('api') || localStorage.getItem('pathsnap_api') || 'http://localhost:8000';
 const map = L.map('map').setView([55.75, 37.62], 11);
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles &copy; Esri',maxZoom:16}).addTo(map);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
 const gpsLayer = L.layerGroup().addTo(map), routeLayer = L.layerGroup().addTo(map);
 L.control.layers(null, {'Raw GPS':gpsLayer,'Predicted route':routeLayer}, {collapsed:false}).addTo(map);
 const lg = L.control({position:'bottomleft'}); lg.onAdd=()=>{const d=L.DomUtil.create('div','legend');
