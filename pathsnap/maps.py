@@ -1,6 +1,8 @@
 """Folium map generation (EDA and prediction maps)."""
 import numpy as np
 import folium
+import os 
+from dotenv import load_dotenv
 
 
 def _arc_lines(nodes, arcs, ids):
@@ -10,8 +12,11 @@ def _arc_lines(nodes, arcs, ids):
 def trip_map(trip, pred_route=None, title="", network_pad_deg=0.002, max_network_arcs=20000):
     tr, nd, ar = trip["track"], trip["nodes"], trip["arcs"]
     centre = [float(np.median(tr[:, 1])), float(np.median(tr[:, 0]))]
-    API_KEY = "cb1_5bdk_1_212c898df0b6af3586c8f434"
-    custom_tile_url = f"https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{{z}}/{{x}}/{{y}}?access_token={API_KEY}"
+
+    load_dotenv()  # Loads variables from .env into the environment
+    api_key = os.getenv("API_KEY")
+
+    custom_tile_url = f"https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{{z}}/{{x}}/{{y}}?access_token={api_key}"
     
     m = folium.Map(location=centre, zoom_start=14, tiles=custom_tile_url,
                 attr='&copy; <a href="https://www.mapbox.com/">Mapbox</a>')
