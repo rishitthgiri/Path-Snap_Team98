@@ -1,8 +1,6 @@
 """Folium map generation (EDA and prediction maps)."""
 import numpy as np
 import folium
-import os 
-from dotenv import load_dotenv
 
 
 def _arc_lines(nodes, arcs, ids):
@@ -12,14 +10,11 @@ def _arc_lines(nodes, arcs, ids):
 def trip_map(trip, pred_route=None, title="", network_pad_deg=0.002, max_network_arcs=20000):
     tr, nd, ar = trip["track"], trip["nodes"], trip["arcs"]
     centre = [float(np.median(tr[:, 1])), float(np.median(tr[:, 0]))]
-
-    load_dotenv()  # Loads variables from .env into the environment
-    api_key = os.getenv("API_KEY")
-
-    custom_tile_url = f"https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{{z}}/{{x}}/{{y}}?access_token={api_key}"
-    
-    m = folium.Map(location=centre, zoom_start=14, tiles=custom_tile_url,
-                attr='&copy; <a href="https://www.mapbox.com/">Mapbox</a>')
+    # CartoDB/OSM tiles can be blocked ("API key" / "Access blocked"); Esri tiles load from file:// too
+    m = folium.Map(location=centre, zoom_start=14, tiles=None)
+    esri = "https://server.arcgisonline.com/ArcGIS/rest/services/{}/MapServer/tile/{{z}}/{{y}}/{{x}}"
+    folium.TileLayer(esri.format("Canvas/World_Light_Gray_Base"), attr="Tiles &copy; Esri", name="Esri light grey").add_to(m)
+    folium.TileLayer(esri.format("World_Street_Map"), attr="Tiles &copy; Esri", name="Esri streets", show=False).add_to(m)
 
     # road network near the trajectory
     lo, hi = tr[:, :2].min(0) - network_pad_deg, tr[:, :2].max(0) + network_pad_deg
