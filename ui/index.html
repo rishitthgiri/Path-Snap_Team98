@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>PathSnap – Evaluator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+ body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;display:flex;height:100vh;color:#222}
+ #side{width:360px;padding:16px;overflow:auto;border-right:1px solid #ddd;box-sizing:border-box}
+ #map{flex:1}
+ h1{font-size:20px;margin:0 0 4px} .sub{color:#666;font-size:13px;margin-bottom:14px}
+ label{font-size:12px;color:#555;display:block;margin-top:10px}
+ input,select,button{width:100%;padding:8px;font-size:14px;box-sizing:border-box;margin-top:4px}
+ button{background:#1565c0;color:#fff;border:0;border-radius:4px;cursor:pointer;margin-top:12px}
+ button:disabled{background:#90a4ae}
+ #trips{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+ #trips button{margin:0;background:#eceff1;color:#222} #trips button.sel{background:#1565c0;color:#fff}
+ table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+ td{padding:4px 2px;border-bottom:1px solid #eee} td:last-child{text-align:right;font-weight:600}
+ .status{font-size:13px;margin-top:10px;color:#555}.err{color:#c62828}
+ .legend{background:#fff;padding:6px 10px;font-size:12px;line-height:18px;border:1px solid #aaa}
+</style>
+</head>
+<body>
+<div id="side">
+  <h1>PathSnap</h1><div class="sub">Map-matching evaluator – choose a trip, the API predicts its route.</div>
+  <label>API URL (Laptop 1)</label><input id="api" placeholder="http://192.168.x.x:8000">
+  <button id="load">Load evaluation trips</button>
+  <label>Evaluation trips</label><div id="trips"></div>
+  <button id="run" disabled>Predict route</button>
+  <div class="status" id="status"></div>
+  <table id="metrics"></table>
+</div>
+<div id="map"></div>
+<script>
+const qs = new URLSearchParams(location.search);
+const apiIn = document.getElementById('api');
+apiIn.value = qs.get('api') || localStorage.getItem('pathsnap_api') || 'http://localhost:8000';
+const map = L.map('map').setView([55.75, 37.62], 11);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles &copy; Esri',maxZoom:16}).addTo(map);
+const gpsLayer = L.layerGroup().addTo(map), routeLayer = L.layerGroup().addTo(map);
+L.control.layers(null, {'Raw GPS':gpsLayer,'Predicted route':routeLayer}, {collapsed:false}).addTo(map);
+const lg = L.control({position:'bottomleft'}); lg.onAdd=()=>{const d=L.DomUtil.create('div','legend');
+ d.innerHTML='<span style="color:#1565c0">&#9679;</span> raw GPS<br><span style="color:#d32f2f">&#9473;&#9473;</span> predicted route';return d}; lg.addTo(map);
+let selected = null;
+const st = (m, err) => { const s = document.getElementById('status'); s.textContent = m; s.className = 'status' + (err ? ' err' : ''); };
+const api = () => apiIn.value.replace(/\/$/, '');
+
+document.getElementById('load').onclick = async () => {
+  try { localStorage.setItem('pathsnap_api', api()); } catch(e) {}
+  st('Loading trips…');
+  try {
+    const r = await fetch(api() + '/trips'); const j = await r.json();
+    const box = document.getElementById('trips'); box.innerHTML = '';
+    j.trips.forEach(t => { const b = document.createElement('button'); b.textContent = t;
+      b.onclick = () => { selected = t; [...box.children].forEach(c => c.classList.remove('sel')); b.classList.add('sel');
+        document.getElementById('run').disabled = false; }; box.appendChild(b); });
+    st(`${j.trips.length} trips available (${j.source}).`);
+  } catch (e) { st('Could not reach API: ' + e, true); }
+};
+
+const pct = v => (v == null ? 'n/a' : (100 * v).toFixed(2) + ' %');
+document.getElementById('run').onclick = async () => {
+  if (!selected) return; const btn = document.getElementById('run'); btn.disabled = true; st(`Predicting trip ${selected}…`);
+  try {
+    const r = await fetch(api() + '/predict', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({trip_id: selected})});
+    if (!r.ok) throw new Error(await r.text()); const j = await r.json();
+    gpsLayer.clearLayers(); routeLayer.clearLayers();
+    j.gps_points.forEach(p => L.circleMarker(p, {radius:2, color:'#1565c0', weight:0, fillOpacity:.8}).addTo(gpsLayer));
+    L.polyline(j.route_segments, {color:'#d32f2f', weight:4, opacity:.9}).addTo(routeLayer);
+    map.fitBounds(L.latLngBounds(j.gps_points), {padding:[20,20]});
+    const m = j.metrics, t = j.timing_s;
+    document.getElementById('metrics').innerHTML = `
+      <tr><td>Trip</td><td>${j.trip_id}</td></tr>
+      <tr><td>GPS points (scored)</td><td>${m.n_points} (${m.n_scored_points})</td></tr>
+      <tr><td><b>Point accuracy – classifier + HMM</b></td><td>${pct(m.hmm_point_accuracy)}</td></tr>
+      <tr><td>Point accuracy – classifier only</td><td>${pct(m.classifier_only_point_accuracy)}</td></tr>
+      <tr><td><b>Route F1 (length-weighted)</b></td><td>${pct(m.route_f1)}</td></tr>
+      <tr><td>Route precision</td><td>${pct(m.route_precision)}</td></tr>
+      <tr><td>Route recall</td><td>${pct(m.route_recall)}</td></tr>
+      <tr><td>Route continuity – HMM</td><td>${pct(m.hmm_route_continuity)}</td></tr>
+      <tr><td>Route continuity – classifier only</td><td>${pct(m.classifier_only_route_continuity)}</td></tr>
+      <tr><td>Predicted route arcs</td><td>${j.route_arc_ids.length}</td></tr>
+      <tr><td>API processing time</td><td>${t.total_incl_scoring.toFixed(2)} s</td></tr>`;
+    st(`Done: trip ${j.trip_id}.`);
+  } catch (e) { st('Prediction failed: ' + e, true); }
+  btn.disabled = false;
+};
+</script>
+</body>
+</html>
