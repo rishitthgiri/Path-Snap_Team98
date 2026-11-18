@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><title>PathSnap – Evaluator</title>
+<meta charset="utf-8"><title>PathSnap â€“ Evaluator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="side">
-  <h1>PathSnap</h1><div class="sub">Map-matching evaluator – choose a trip, the API predicts its route.</div>
+  <h1>PathSnap</h1><div class="sub">Map-matching evaluator â€“ choose a trip, the API predicts its route.</div>
   <label>API URL (Laptop 1)</label><input id="api" placeholder="http://192.168.x.x:8000">
   <button id="load">Load evaluation trips</button>
   <label>Evaluation trips</label><div id="trips"></div>
@@ -49,7 +49,7 @@ const api = () => apiIn.value.replace(/\/$/, '');
 
 document.getElementById('load').onclick = async () => {
   try { localStorage.setItem('pathsnap_api', api()); } catch(e) {}
-  st('Loading trips…');
+  st('Loading tripsâ€¦');
   try {
     const r = await fetch(api() + '/trips'); const j = await r.json();
     const box = document.getElementById('trips'); box.innerHTML = '';
@@ -62,7 +62,7 @@ document.getElementById('load').onclick = async () => {
 
 const pct = v => (v == null ? 'n/a' : (100 * v).toFixed(2) + ' %');
 document.getElementById('run').onclick = async () => {
-  if (!selected) return; const btn = document.getElementById('run'); btn.disabled = true; st(`Predicting trip ${selected}…`);
+  if (!selected) return; const btn = document.getElementById('run'); btn.disabled = true; st(`Predicting trip ${selected}â€¦`);
   try {
     const r = await fetch(api() + '/predict', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({trip_id: selected})});
     if (!r.ok) throw new Error(await r.text()); const j = await r.json();
@@ -74,13 +74,13 @@ document.getElementById('run').onclick = async () => {
     document.getElementById('metrics').innerHTML = `
       <tr><td>Trip</td><td>${j.trip_id}</td></tr>
       <tr><td>GPS points (scored)</td><td>${m.n_points} (${m.n_scored_points})</td></tr>
-      <tr><td><b>Point accuracy – classifier + HMM</b></td><td>${pct(m.hmm_point_accuracy)}</td></tr>
-      <tr><td>Point accuracy – classifier only</td><td>${pct(m.classifier_only_point_accuracy)}</td></tr>
+      <tr><td><b>Point accuracy â€“ classifier + HMM</b></td><td>${pct(m.hmm_point_accuracy)}</td></tr>
+      <tr><td>Point accuracy â€“ classifier only</td><td>${pct(m.classifier_only_point_accuracy)}</td></tr>
       <tr><td><b>Route F1 (length-weighted)</b></td><td>${pct(m.route_f1)}</td></tr>
       <tr><td>Route precision</td><td>${pct(m.route_precision)}</td></tr>
       <tr><td>Route recall</td><td>${pct(m.route_recall)}</td></tr>
-      <tr><td>Route continuity – HMM</td><td>${pct(m.hmm_route_continuity)}</td></tr>
-      <tr><td>Route continuity – classifier only</td><td>${pct(m.classifier_only_route_continuity)}</td></tr>
+      <tr><td>Route continuity â€“ HMM</td><td>${pct(m.hmm_route_continuity)}</td></tr>
+      <tr><td>Route continuity â€“ classifier only</td><td>${pct(m.classifier_only_route_continuity)}</td></tr>
       <tr><td>Predicted route arcs</td><td>${j.route_arc_ids.length}</td></tr>
       <tr><td>API processing time</td><td>${t.total_incl_scoring.toFixed(2)} s</td></tr>`;
     st(`Done: trip ${j.trip_id}.`);
@@ -90,3 +90,4 @@ document.getElementById('run').onclick = async () => {
 </script>
 </body>
 </html>
+
