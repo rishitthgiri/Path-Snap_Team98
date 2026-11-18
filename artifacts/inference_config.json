@@ -1,0 +1,51 @@
+{
+  "features": [
+    "dist",
+    "dist_rank",
+    "dist_minus_min",
+    "dist_ratio_min",
+    "n_cand",
+    "heading_diff",
+    "heading_valid",
+    "speed",
+    "along_motion",
+    "along_motion_norm",
+    "ctx_dist_mean",
+    "ctx_dist_max",
+    "proj_frac",
+    "outside_seg",
+    "arc_len",
+    "has_twin",
+    "from_in_deg",
+    "to_out_deg",
+    "dt_prev",
+    "dt_next"
+  ],
+  "hmm_params": {
+    "beta": 10.0,
+    "emission_weight": 0.5,
+    "back_tol": 30.0,
+    "unreachable_logp": -40.0
+  },
+  "classifier": "HistGradientBoosting (BO-tuned)",
+  "candidate_radius_m": 50.0,
+  "candidate_max_k": 12,
+  "tune_trips": [
+    "00000006",
+    "00000008",
+    "00000018",
+    "00000035",
+    "00000046",
+    "00000050",
+    "00000058",
+    "00000068",
+    "00000069",
+    "00000070",
+    "00000071",
+    "00000075",
+    "00000080",
+    "00000085",
+    "00000089",
+    "00000090"
+  ]
+}
