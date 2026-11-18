@@ -1,0 +1,3 @@
+split,trips,gps_total,gps_median,gps_min,gps_max,nan_rows,nodes_median,arcs_median,isolated_nodes,pct_dt_1s,max_gap_s,route_continuity_min,pct_pts_gt50m
+student_test,10,19160,1420.0,262,3958,0,6596.5,13145.0,0,98.19896936551982,210.0,0.9973190348525469,0.06821627084386053
+train,80,208417,1529.0,361,19313,0,9608.0,19526.5,0,93.82961036581523,153064.0,0.9813084112149533,2.486439736403668
